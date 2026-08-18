@@ -1,21 +1,21 @@
 #pragma once
-
+#include <optional> //1
 #include <string>
 #include <vector>
 
 namespace arl {
 
 struct RoverPose {
-    double worldX;
-    double worldY;
-    double headingDegrees;
+    double worldX; 
+    double worldY; 
+    double headingDegrees;//ccw
 };
-
+// numeric, euc range>0 <max range, confidence 0->1
 struct Detection {
     std::string id;
-    double forward;
-    double left;
-    double confidence;
+    double forward;//behind - front +
+    double left;//right - left +
+    double confidence;// 0->1
 };
 
 struct SafetyConfig {
@@ -44,9 +44,10 @@ std::optional<Obstacle> findNearestObstacle(const std::vector<Obstacle>& obstacl
 
 double calculateStoppingDistance(double speedKph, const SafetyConfig& config);
 
+
 bool shouldEmergencyBrake(
     const std::vector<Obstacle>& obstacles,
     double speedKph,
     const SafetyConfig& config);
 
-}  // namespace arl
+} //namespace arl

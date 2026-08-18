@@ -37,5 +37,5 @@ def monitor_following_distance(distances: list[float], speeds: list[float]) -> t
         if ((old_safe!=safe) and (safe==0)):
             incidents+=1;
 
-    return (tailgating_secs, min, incidents);
+    return (tailgating_sec, min, incidents);
     #pass

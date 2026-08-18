@@ -22,7 +22,7 @@ def monitor_following_distance(distances: list[float], speeds: list[float]) -> t
     incidents=0;
     
     for car in range (len(distances)):
-        safe_dist= speed[car]*0.5;
+        safe_dist= speeds[car]*0.5;
 
         old_safe=safe;
         if (distances[car]< safe_dist):
